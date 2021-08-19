@@ -48,7 +48,7 @@ const commandsBlocks = [
     "type": "section",
     "text": {
       "type": "mrkdwn",
-      "text": ':busts_in_silhouette: `@uop "swap staff" swap staff` *swaps two users\' positions* in a rotation'
+      "text": ':left_right_arrow: `@uop "rotation-name" swap staff @user1 @user2` *swaps two users\' positions* in a rotation'
     }
   },
   {

@@ -1,5 +1,5 @@
 // Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
-require('dotenv').config();
+require('dotenv').config({path:__dirname+'/./../.env'});
 
 const { WebClient, LogLevel } = require("@slack/web-api");
 
@@ -17,7 +17,7 @@ let listOnPoint = "<@U02CBN7HW0G> list";
 let runHelp = "<@U02CBN7HW0G> help";
 let runs = 0;
 //let nextPlatformOnPoint = `<@U02CBN7HW0G> "platform" assign next`
-
+console.log(process.env.SLACK_BOT_TOKEN);
 // Post a message to a channel your app is in using ID and message text
 async function publishMessage(id, text) {
     try {
@@ -38,10 +38,6 @@ async function publishMessage(id, text) {
     }
 }
 
-// publishMessage(generalId, runHelp);
-// publishMessage(generalId, nextAIOnPoint);
-// publishMessage(generalId,listOnPoint);
-
 // Schedule for automatically assigning the next person in the rotation
 
 function scheduleChange(assignmentGroup){
@@ -52,7 +48,7 @@ function scheduleChange(assignmentGroup){
 let swaps = setInterval(function(){
     runs += 1;
     console.log(runs);
-    if (runs > 2) {
+    if (runs > 1) {
         clearInterval(swaps);
     }
     return scheduleChange(nextAIOnPoint);
