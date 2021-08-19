@@ -31,83 +31,58 @@ const app_mentions = (app, store) => {
       botToken: context.botToken,                 // bot access token
       rotaList: await store.getRotations()        // rotations in db
     }
-    // Decision logic establishing how to respond to mentions
-    const isNew = await utils.isCmd('new', ec.text);
-    const isDescription = await utils.isCmd('description', ec.text);
-    const isStaff = await utils.isCmd('staff', ec.text);
-    const isResetStaff = await utils.isCmd('reset staff', ec.text);
-    const isAssign = await utils.isCmd('assign', ec.text);
-    const isAssignNext = await utils.isCmd('assign next', ec.text);
-    const isWho = await utils.isCmd('who', ec.text);
-    const isAbout = await utils.isCmd('about', ec.text);
-    const isUnassign = await utils.isCmd('unassign', ec.text);
-    const isDelete = await utils.isCmd('delete', ec.text);
-    const isHelp = await utils.isCmd('help', ec.text);
-    const isList = await utils.isCmd('list', ec.text);
-    const testMessage = await utils.isCmd('message', ec.text);
-    const isMessage =
-      testMessage &&
-      !isNew &&
-      !isDescription &&
-      !isStaff &&
-      !isResetStaff &&
-      !isAssign &&
-      !isAssignNext &&
-      !isWho &&
-      !isAbout &&
-      !isUnassign &&
-      !isDelete;
 
+    // Decision logic establishing how to respond to mentions
     // @uop new "[rotation]" [optional description]
-    if (isNew) {
+    if (await utils.isCmd('new', ec.text)) {
       cmdNew(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" description [new description]
-    else if (isDescription) {
+    else if (await utils.isCmd('description', ec.text)) {
       cmdDescription(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" staff [@user @user @user]
-    else if (isStaff) {
+    else if (await utils.isCmd('staff', ec.text)) {
       cmdStaff(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" reset staff
-    else if (isResetStaff) {
+    else if (await utils.isCmd('reset staff', ec.text)) {
       cmdResetStaff(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" delete
-    else if (isDelete) {
+    else if (await utils.isCmd('delete', ec.text)) {
       cmdDelete(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" about
-    else if (isAbout) {
+    else if (await utils.isCmd('about', ec.text)) {
       cmdAbout(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" assign [@user] [handoff message]
-    else if (isAssign) {
+    else if (await utils.isCmd('assign', ec.text)) {
       cmdAssign(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" assign next [handoff message]
-    else if (isAssignNext) {
+    else if (await utils.isCmd('assign next', ec.text)) {
       cmdAssignNext(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" who
-    else if (isWho) {
+    else if (await utils.isCmd('who', ec.text)) {
       cmdWho(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" unassign
-    else if (isUnassign) {
+    else if (await utils.isCmd('unassign', ec.text)) {
       cmdUnassign(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop list
-    else if (isList) {
+    else if (await utils.isCmd('list', ec.text)) {
       cmdList(app, ec, utils, msgText, errHandler);
     }
     // @uop help
-    else if (isHelp) {
+    else if (await utils.isCmd('help', ec.text)) {
       cmdHelp(app, ec, utils, helpBlocks, msgText, errHandler);
     }
     // @uop "[rotation]" free form message for on-call user
-    else if (isMessage) {
+    else if (await utils.isCmd('message', ec.text)) {
       cmdMessage(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop anything else
