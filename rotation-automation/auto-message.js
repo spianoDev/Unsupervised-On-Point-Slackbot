@@ -10,11 +10,11 @@ const client = new WebClient(process.env.SLACK_BOT_TOKEN, {
     logLevel: LogLevel.DEBUG
 });
 // list of messages that automatically get sent to slack
-let generalId = "C02BN7337RR"
-let nextAIOnPoint = "<@U02CBN7HW0G> \"ai\" assign next"
-let nextPlatformOnPoint ="<@U02CBN7HW0G> \"platform\" assign next"
-let listOnPoint = "<@U02CBN7HW0G> list"
-let runHelp = "<@U02CBN7HW0G> help"
+let generalId = "C02BN7337RR";
+let nextAIOnPoint = "<@U02CBN7HW0G> \"ai\" assign next";
+let nextPlatformOnPoint ="<@U02CBN7HW0G> \"platform\" assign next";
+let listOnPoint = "<@U02CBN7HW0G> list";
+let runHelp = "<@U02CBN7HW0G> help";
 let runs = 0;
 //let nextPlatformOnPoint = `<@U02CBN7HW0G> "platform" assign next`
 
@@ -57,5 +57,4 @@ let swaps = setInterval(function(){
     }
     return scheduleChange(nextAIOnPoint);
 }, 10000);
-
 
