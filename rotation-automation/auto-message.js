@@ -40,5 +40,5 @@ publishMessage(generalId, runHelp);
 // Schedule for automatically assigning the next person in the rotation
 
 function scheduleChange(assignmentGroup){
-    
+
 }
