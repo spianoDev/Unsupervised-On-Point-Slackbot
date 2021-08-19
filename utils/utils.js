@@ -13,6 +13,7 @@ const utils = {
     // Accepts a space-separated list of usernames to staff a rotation
     // List of mentions has to start with <@U and end with > but can contain spaces, commas, multiple user mentions
     staff: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (staff) (<@U[<@>A-Z0-9,\s]+?>)$/g,
+    'swap staff': /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (swap staff) (<@U[<@>A-Z0-9,\s]+?>)$/g,
     // @uop "[rotation]" reset staff
     // Removes rotation staff list
     'reset staff': /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (reset staff)$/g,
@@ -129,7 +130,7 @@ const utils = {
       }
       // Rotation, command, list of space-separated usermentions
       // Proofed to accommodate use of comma+space separation and minor whitespace typos
-      else if (cmd === 'staff') {
+      else if (['staff', 'swap staff'].includes(cmd)) {
         const getStaffArray = (staffStr) => {
           const cleanStr = staffStr.replace(/,/g, '').replace(/></g, '> <').trim();
           const arr = cleanStr.split(' ');

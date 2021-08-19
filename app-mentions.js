@@ -6,6 +6,7 @@ const cmdNew = require('./app-mentions/new');
 const cmdDescription = require('./app-mentions/description');
 const cmdStaff = require('./app-mentions/staff');
 const cmdResetStaff = require('./app-mentions/reset-staff');
+const cmdSwapStaff = require('./app-mentions/swap-staff');
 const cmdDelete = require('./app-mentions/delete');
 const cmdAbout = require('./app-mentions/about');
 const cmdAssign = require('./app-mentions/assign');
@@ -44,6 +45,10 @@ const app_mentions = (app, store) => {
     // @uop "[rotation]" staff [@user @user @user]
     else if (await utils.isCmd('staff', ec.text)) {
       cmdStaff(app, event, context, ec, utils, store, msgText, errHandler);
+    }
+    // @uop "[rotation]" swap staff
+    else if (await utils.isCmd('swap staff', ec.text)) {
+      cmdSwapStaff(app, event, context, ec, utils, store, msgText, errHandler);
     }
     // @uop "[rotation]" reset staff
     else if (await utils.isCmd('reset staff', ec.text)) {
