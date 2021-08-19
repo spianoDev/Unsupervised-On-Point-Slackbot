@@ -99,6 +99,13 @@ const commandsBlocks = [
       "type": "mrkdwn",
       "text": ":question: `@uop help` shows how to interact with me."
     }
+  },
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": ":smile: `@uop hi` says hello."
+    }
   }
 ];
 
