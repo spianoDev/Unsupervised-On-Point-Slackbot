@@ -30,7 +30,7 @@ const msgText = {
     return `:ghost: The staff list for the *${rotation}* rotation has been reset and is empty.`;
   },
   resetStaffError: (rotation) => {
-    return ':shrug: I couldn\'t reset the staff list for "' + rotation + '" because it does not exist. To create this rotation, first tell me `@uop new "' + rotation + '" [description]`. It will initialize with no staff by default.';
+    return ':shrug: I couldn\'t modify the staff list for "' + rotation + '" because it does not exist. To create this rotation, first tell me `@uop new "' + rotation + '" [description]`. It will initialize with no staff by default.';
   },
   deleteConfirm: (rotation) => {
     return `:put_litter_in_its_place: The *${rotation}* rotation has been deleted.`;

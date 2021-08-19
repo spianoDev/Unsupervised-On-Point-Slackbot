@@ -8,6 +8,7 @@ Rota is a Slack app + bot I wrote for internal company use to manage team rotati
 * `@uop delete "[rotation]"` deletes the rotation completely (use with caution!).
 * `@uop "[rotation]" description [new description]` updates the description for a rotation.
 * `@uop "[rotation]" staff [@user1 @user2 @user3]` adds staff to a rotation; a space-separated list of usernames is expected as a parameter with usernames in the order of desired rotation (rotations with a staff list can be assigned using `assign next`).
+* `@uop "[rotation]" swap staff [@user1 @user2]` swaps two users' positions in a rotation
 * `@uop "[rotation]" reset staff` clears a rotation's staff list (use with caution!).
 * `@uop "[rotation]" assign [@user] [optional handoff message]` assigns someone to the rotation and, optionally, sends a DM to them with handoff information.
 * `@uop "[rotation]" assign next [optional handoff message]` assigns the next person in the staff list to a rotation and, optionally, sends a DM to them with handoff information.

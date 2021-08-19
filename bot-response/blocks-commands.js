@@ -48,6 +48,13 @@ const commandsBlocks = [
     "type": "section",
     "text": {
       "type": "mrkdwn",
+      "text": ':busts_in_silhouette: `@uop "swap staff" swap staff` *swaps two users\' positions* in a rotation'
+    }
+  },
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
       "text": ':ghost: `@uop "rotation-name" reset staff` *removes all users* from a rotation staff list. _Use with caution!_'
     }
   },
@@ -98,13 +105,6 @@ const commandsBlocks = [
     "text": {
       "type": "mrkdwn",
       "text": ":question: `@uop help` shows how to interact with me."
-    }
-  },
-  {
-    "type": "section",
-    "text": {
-      "type": "mrkdwn",
-      "text": ":smile: `@uop hi` says hello."
     }
   }
 ];
