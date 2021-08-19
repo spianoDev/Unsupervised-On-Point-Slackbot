@@ -3,48 +3,48 @@
 ------------------*/
 const utils = {
   regex: {
-    // @rota new "[new-rotation-name]" [optional description]
+    // @uop new "[new-rotation-name]" [optional description]
     // Create a new rotation
     new: /^<@(U[A-Z0-9]+?)> (new) "([a-z0-9\-]+?)"(.*)$/g,
-    // @rota "[rotation]" description [description]
+    // @uop "[rotation]" description [description]
     // Update description for an existing rotation
     description: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (description)(.*)$/g,
-    // @rota "[rotation]" staff [@username, @username, @username]
+    // @uop "[rotation]" staff [@username, @username, @username]
     // Accepts a space-separated list of usernames to staff a rotation
     // List of mentions has to start with <@U and end with > but can contain spaces, commas, multiple user mentions
     staff: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (staff) (<@U[<@>A-Z0-9,\s]+?>)$/g,
-    // @rota "[rotation]" reset staff
+    // @uop "[rotation]" reset staff
     // Removes rotation staff list
     'reset staff': /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (reset staff)$/g,
     // Capture user ID only from
     // <@U03LKJ> or <@U0345|name>
     userID: /^<@([A-Z0-9]+?)[a-z|._\-]*?>$/g,
-    // @rota "[rotation]" assign [@username] [optional handoff message]
+    // @uop "[rotation]" assign [@username] [optional handoff message]
     // Assigns a user to a rotation
     assign: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (assign) (<@U[A-Z0-9]+?>)(.*)$/g,
-    // @rota "[rotation]" assign next [optional handoff message]
+    // @uop "[rotation]" assign next [optional handoff message]
     // Assigns a user to a rotation
     'assign next': /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (assign next)(.*)$/g,
-    // @rota "[rotation]" who
+    // @uop "[rotation]" who
     // Responds stating who is on-call for a rotation
     who: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (who)$/g,
-    // @rota "[rotation]" about
+    // @uop "[rotation]" about
     // Responds with description and mention of on-call for a rotation
     // Sends ephemeral staff list (to save everyone's notifications)
     about: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (about)$/g,
-    // @rota "[rotation]" unassign
+    // @uop "[rotation]" unassign
     // Unassigns rotation
     unassign: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (unassign)$/g,
-    // @rota delete "[rotation]"
+    // @uop delete "[rotation]"
     // Removes the rotation completely
     delete: /^<@(U[A-Z0-9]+?)> (delete) "([a-z0-9\-]+?)"$/g,
-    // @rota help
+    // @uop help
     // Post help messaging
     help: /^<@(U[A-Z0-9]+?)> (help)$/g,
-    // @rota list
+    // @uop list
     // List all rotations in store
     list: /^<@(U[A-Z0-9]+?)> (list)$/g,
-    // @rota "[rotation]" any other message
+    // @uop "[rotation]" any other message
     // Message does not contain a command
     // Sends message text
     message: /^<@(U[A-Z0-9]+?)> "([a-z0-9\-]+?)" (.*)$/g

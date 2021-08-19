@@ -1,6 +1,6 @@
 /*------------------
   NEW
-  @rota new "[rotation-name]" [optional description]
+  @uop new "[rotation-name]" [optional description]
   Creates a new rotation with description
 ------------------*/
 module.exports = async (app, event, context, ec, utils, store, msgText, errHandler) => {

@@ -1,6 +1,6 @@
 /*------------------
   DESCRIPTION
-  @rota "[rotation-name]" description [new description]
+  @uop "[rotation-name]" description [new description]
   Updates the description for an existing rotation
 ------------------*/
 module.exports = async (app, event, context, ec, utils, store, msgText, errHandler) => {

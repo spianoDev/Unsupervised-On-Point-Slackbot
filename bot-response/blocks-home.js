@@ -98,7 +98,7 @@ const homeBlocks = (userID, storeList) => {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "I do _not_ control things like reminders, automated rotation scheduling, or delayed delivery of messages. However, because I'm a _bot_ and not a slash command, I play well with others! Here are some ways you can use the <@rota> bot with other Slack features and third party apps."
+        "text": "I do _not_ control things like reminders, automated rotation scheduling, or delayed delivery of messages. However, because I'm a _bot_ and not a slash command, I play well with others! Here are some ways you can use the <@uop> bot with other Slack features and third party apps."
       }
     },
     {
@@ -119,14 +119,14 @@ const homeBlocks = (userID, storeList) => {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": '```/remind [#channel] "@rota "[rotation]" assign the next user in the rotation using `@rota "[rotation]" assign next`" every Monday at 9am```'
+        "text": '```/remind [#channel] "@uop "[rotation]" assign the next user in the rotation using `@uop "[rotation]" assign next`" every Monday at 9am```'
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Note:* You can't _directly_ remind me to do something. For instance: `/remind @rota \"[rotation]\" message in 5 minutes` will _not_ work because <@slackbot> isn't allowed to send reminders to <@rota> — another _bot user_. When using `/remind`, you need to send the reminder _to a channel_. This ensures the message is delivered to the rotation's _assigned human user_."
+        "text": "*Note:* You can't _directly_ remind me to do something. For instance: `/remind @uop \"[rotation]\" message in 5 minutes` will _not_ work because <@slackbot> isn't allowed to send reminders to <@uop> — another _bot user_. When using `/remind`, you need to send the reminder _to a channel_. This ensures the message is delivered to the rotation's _assigned human user_."
       }
     },
     {
@@ -147,7 +147,7 @@ const homeBlocks = (userID, storeList) => {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": '```/gator @rota "[rotation]" I need some help with task XYZ please!```'
+        "text": '```/gator @uop "[rotation]" I need some help with task XYZ please!```'
       }
     },
     {

@@ -58,59 +58,59 @@ const app_mentions = (app, store) => {
       !isUnassign &&
       !isDelete;
 
-    // @rota new "[rotation]" [optional description]
+    // @uop new "[rotation]" [optional description]
     if (isNew) {
       cmdNew(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" description [new description]
+    // @uop "[rotation]" description [new description]
     else if (isDescription) {
       cmdDescription(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" staff [@user @user @user]
+    // @uop "[rotation]" staff [@user @user @user]
     else if (isStaff) {
       cmdStaff(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" reset staff
+    // @uop "[rotation]" reset staff
     else if (isResetStaff) {
       cmdResetStaff(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" delete
+    // @uop "[rotation]" delete
     else if (isDelete) {
       cmdDelete(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" about
+    // @uop "[rotation]" about
     else if (isAbout) {
       cmdAbout(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" assign [@user] [handoff message]
+    // @uop "[rotation]" assign [@user] [handoff message]
     else if (isAssign) {
       cmdAssign(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" assign next [handoff message]
+    // @uop "[rotation]" assign next [handoff message]
     else if (isAssignNext) {
       cmdAssignNext(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" who
+    // @uop "[rotation]" who
     else if (isWho) {
       cmdWho(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota "[rotation]" unassign
+    // @uop "[rotation]" unassign
     else if (isUnassign) {
       cmdUnassign(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota list
+    // @uop list
     else if (isList) {
       cmdList(app, ec, utils, msgText, errHandler);
     }
-    // @rota help
+    // @uop help
     else if (isHelp) {
       cmdHelp(app, ec, utils, helpBlocks, msgText, errHandler);
     }
-    // @rota "[rotation]" free form message for on-call user
+    // @uop "[rotation]" free form message for on-call user
     else if (isMessage) {
       cmdMessage(app, event, context, ec, utils, store, msgText, errHandler);
     }
-    // @rota anything else
+    // @uop anything else
     else {
       try {
         // console.log('Event: ', event, 'Clean Text: ', utils.cleanText(ec.text));

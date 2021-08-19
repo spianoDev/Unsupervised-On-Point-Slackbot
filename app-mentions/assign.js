@@ -1,6 +1,6 @@
 /*------------------
   ASSIGN
-  @rota "[rotation]" assign [@user] [handoff message]
+  @uop "[rotation]" assign [@user] [handoff message]
   Assigns a user to specified rotation
 ------------------*/
 module.exports = async (app, event, context, ec, utils, store, msgText, errHandler) => {

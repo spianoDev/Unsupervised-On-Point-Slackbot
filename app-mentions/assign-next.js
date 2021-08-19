@@ -1,6 +1,6 @@
 /*------------------
   ASSIGN NEXT
-  @rota "[rotation]" assign next [handoff message]
+  @uop "[rotation]" assign next [handoff message]
   Assigns next user in staff list to rotation
 ------------------*/
 module.exports = async (app, event, context, ec, utils, store, msgText, errHandler) => {

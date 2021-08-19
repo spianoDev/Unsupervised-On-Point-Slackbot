@@ -1,6 +1,6 @@
 /*------------------
   RESET STAFF
-  @rota "[rotation]" reset staff
+  @uop "[rotation]" reset staff
   Removes rotation staff
 ------------------*/
 module.exports = async (app, event, context, ec, utils, store, msgText, errHandler) => {
