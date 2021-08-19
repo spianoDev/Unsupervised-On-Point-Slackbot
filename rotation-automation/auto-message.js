@@ -1,15 +1,18 @@
 // Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
 const { WebClient, LogLevel } = require("@slack/web-api");
 
-// WebClient insantiates a client that can call API methods
+// WebClient instantiates a client that can call API methods
 // When using Bolt, you can use either `app.client` or the `client` passed to listeners.
-const client = new WebClient("xoxb-2396045298034-2419755608016-PbHGmlk5gUh1CBv5fUMVr2VE", {
+const client = new WebClient("xoxb-2396045298034-2419755608016-nKsBDHbq0iFicMLRyVeeADcl", {
     // LogLevel can be imported and used to make debugging simpler
     logLevel: LogLevel.DEBUG
 });
 // list of messages that automatically get sent to slack
-let newSchedule = `<@U02CBN7HW0G> `
-
+let generalId = "C02BN7337RR"
+let nextAIOnPoint = "<@U02CBN7HW0G> \"ai\" assign next"
+let listOnPoint = "<@U02CBN7HW0G> list"
+let runHelp = "<@U02CBN7HW0G> help"
+//let nextPlatformOnPoint = `<@U02CBN7HW0G> "platform" assign next`
 
 // Post a message to a channel your app is in using ID and message text
 async function publishMessage(id, text) {
@@ -17,7 +20,7 @@ async function publishMessage(id, text) {
         // Call the chat.postMessage method using the built-in WebClient
         const result = await client.chat.postMessage({
             // The token you used to initialize your app
-            token: "xoxb-2396045298034-2419755608016-PbHGmlk5gUh1CBv5fUMVr2VE",
+            token: "xoxb-2396045298034-2419755608016-nKsBDHbq0iFicMLRyVeeADcl",
             channel: id,
             text: text
             // You could also use a blocks[] array to send richer content
@@ -31,6 +34,11 @@ async function publishMessage(id, text) {
     }
 }
 
-publishMessage("C02BN7337RR", `<@U02CBN7HW0G> list :rocket:`);
+publishMessage(generalId, runHelp);
+//publishMessage(generalId, nextPlatformOnPoint);
 
+// Schedule for automatically assigning the next person in the rotation
 
+function scheduleChange(assignmentGroup){
+    
+}
