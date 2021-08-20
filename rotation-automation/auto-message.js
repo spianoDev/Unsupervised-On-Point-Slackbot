@@ -1,6 +1,6 @@
 // Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
 require('dotenv').config({path:__dirname+'/./../.env'});
-
+const mentions = require("./../app-mentions");
 const { WebClient, LogLevel } = require("@slack/web-api");
 
 // WebClient instantiates a client that can call API methods
@@ -11,10 +11,11 @@ const client = new WebClient(process.env.SLACK_BOT_TOKEN, {
 });
 // list of messages that automatically get sent to slack
 let generalId = "C02BN7337RR";
+let autoId = "C02CJT2L7ME";
 let nextAIOnPoint = "<@U02CBN7HW0G> \"ai\" assign next";
 let nextPlatformOnPoint ="<@U02CBN7HW0G> \"platform\" assign next";
 let listOnPoint = "<@U02CBN7HW0G> list";
-let runHelp = "<@U02CBN7HW0G> help";
+let runHelp = `<@U02CBN7HW0G> help`;
 let runs = 0;
 //let nextPlatformOnPoint = `<@U02CBN7HW0G> "platform" assign next`
 console.log(process.env.SLACK_BOT_TOKEN);
@@ -26,7 +27,9 @@ async function publishMessage(id, text) {
             // The token you used to initialize your app
             token: process.env.SLACK_BOT_TOKEN,
             channel: id,
-            text: text
+            text: text,
+            cmdList: mentions
+
             // You could also use a blocks[] array to send richer content
         });
 
@@ -37,20 +40,21 @@ async function publishMessage(id, text) {
         console.error(error);
     }
 }
+publishMessage(autoId, listOnPoint);
 
 // Schedule for automatically assigning the next person in the rotation
-
-function scheduleChange(assignmentGroup){
-    console.log("Rotation updated for " + assignmentGroup);
-    return publishMessage(generalId, assignmentGroup);
-}
-
-let swaps = setInterval(function(){
-    runs += 1;
-    console.log(runs);
-    if (runs > 1) {
-        clearInterval(swaps);
-    }
-    return scheduleChange(nextAIOnPoint);
-}, 10000);
-
+//
+// function scheduleChange(assignmentGroup){
+//     console.log("Text message sent to Slack: " + assignmentGroup);
+//     return publishMessage(autoId, assignmentGroup);
+// }
+//
+// let swaps = setInterval(function(){
+//     runs += 1;
+//     console.log(runs);
+//     if (runs > 1) {
+//         clearInterval(swaps);
+//     }
+//     return scheduleChange(nextAIOnPoint);
+// }, 15000);
+//
